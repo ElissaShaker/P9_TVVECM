@@ -54,13 +54,6 @@ merged_data <- GMST_sel %>%
   inner_join(ERF_sel, by = "year") #%>% inner_join(EEI_sel, by = "year")
 merged_data <- merged_data[merged_data$year >= 1970, ]
 
-### Robustness only (Appendix)
-# q_low  <- quantile(merged_data$EEI, 0.01, na.rm = TRUE)
-# q_high <- quantile(merged_data$EEI, 0.99, na.rm = TRUE)
-# 
-# merged_data$EEI_wins <- pmin(pmax(merged_data$EEI, q_low), q_high)
-######
-
 y1 <- merged_data$GMST          # response
 y2 <- merged_data$ERF           # forcing
 #y3 <- merged_data$EEI           # energy imbalance
